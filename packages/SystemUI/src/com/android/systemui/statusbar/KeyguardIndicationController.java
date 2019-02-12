@@ -215,7 +215,7 @@ public class KeyguardIndicationController {
     /** Whether the battery defender is triggered with the device plugged. */
     private boolean mEnableBatteryDefender;
     private boolean mIncompatibleCharger;
-    private int mChargingWattage;
+    private double mChargingWattage;
     private int mBatteryLevel;
     private boolean mBatteryPresent = true;
     protected long mChargingTimeRemaining;
@@ -1153,6 +1153,10 @@ public class KeyguardIndicationController {
         if (showbatteryInfo) {
             if (mChargingCurrent > 0) {
                 batteryInfo = batteryInfo + (mChargingCurrent / 1000) + "mA";
+            }
+            if (mChargingWattage > 0) {
+                batteryInfo = (batteryInfo == "" ? "" : batteryInfo + " · ") +
+                        String.format("%.1f" , (mChargingWattage / 1000 / 1000)) + "W";
             }
             if (mChargingVoltage > 0) {
                 batteryInfo = (batteryInfo == "" ? "" : batteryInfo + " · ") +
