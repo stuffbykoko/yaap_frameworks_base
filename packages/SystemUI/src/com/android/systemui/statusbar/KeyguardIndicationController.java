@@ -224,7 +224,7 @@ public class KeyguardIndicationController {
     private final FaceHelpMessageDeferral mFaceAcquiredMessageDeferral;
     private int mChargingCurrent;
     private double mChargingVoltage;
-    private int mTemperature;
+    private float mTemperature;
     private boolean mInited;
 
     private KeyguardUpdateMonitorCallback mUpdateMonitorCallback;
